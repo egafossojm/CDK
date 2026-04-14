@@ -10,8 +10,10 @@ export class CdkPipelineStack extends cdk.Stack {
     super(scope, id, props);
 
     // Access the CommitId of a GitHub source in the synth
-    const source = pipelines.CodePipelineSource.gitHub('egafossojm/CDK', 'main',{
-      authentication: cdk.SecretValue.secretsManager('github-token'),
+    const source = pipelines.CodePipelineSource.gitHub('egafossojm/CDK', 'main', {
+      authentication: cdk.SecretValue.secretsManager('github-token', {
+        jsonField: 'token'
+      }),
     });
 
     // Create pipeline with S3 source
