@@ -1,4 +1,4 @@
-import { WorkshopPipelineStageProps, WorkshopPipelineStage } from './cdk-pipeline-stage';
+import { BucketStage } from './cdk-pipeline-stages';
 import * as cdk from 'aws-cdk-lib/core';
 import { Construct } from 'constructs';
 import * as pipelines from 'aws-cdk-lib/pipelines';
@@ -32,9 +32,8 @@ export class CdkPipelineStack extends cdk.Stack {
     });
 
         // Add deployment stage
-        const bucketStage = new WorkshopPipelineStage(this, "bucket",{
-          bucketName:'stage-bucket-sd2ds25er'
-        });
+
+        const bucketStage = new BucketStage(this, 'bucket');
         pipeline.addStage(bucketStage);
   }
 }
