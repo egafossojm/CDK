@@ -33,7 +33,7 @@ export class CdkPipelineStack extends cdk.Stack {
 
         // Add deployment stage
         const bucketStage = new WorkshopPipelineStage(this, "bucket",{
-          bucketName:'stageBucket-sd2ds25er'
+          bucketName:'stage-bucket-sd2ds25er'
         });
         pipeline.addStage(bucketStage);
   }
